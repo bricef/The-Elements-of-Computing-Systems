@@ -1,0 +1,28 @@
+/**
+ * And gate: out = a and b and c and d.
+ */
+
+CHIP And4Way16 {
+
+    IN  a, b, c, d[16];
+    OUT out[16];
+
+    PARTS:
+    And3Way(a=a, b=b, c=c, out=c1);
+    And(a=c1, b=d[0], out=out[0]);
+    And(a=c1, b=d[1], out=out[1]);
+    And(a=c1, b=d[2], out=out[2]);
+    And(a=c1, b=d[3], out=out[3]);
+    And(a=c1, b=d[4], out=out[4]);
+    And(a=c1, b=d[5], out=out[5]);
+    And(a=c1, b=d[6], out=out[6]);
+    And(a=c1, b=d[7], out=out[7]);
+    And(a=c1, b=d[8], out=out[8]);
+    And(a=c1, b=d[9], out=out[9]);
+    And(a=c1, b=d[10], out=out[10]);
+    And(a=c1, b=d[11], out=out[11]);
+    And(a=c1, b=d[12], out=out[12]);
+    And(a=c1, b=d[13], out=out[13]);
+    And(a=c1, b=d[14], out=out[14]);
+    And(a=c1, b=d[15], out=out[15]);
+}

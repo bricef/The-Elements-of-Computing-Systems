@@ -1,0 +1,122 @@
+
+class Ghost {
+    field int x, y, speed, size, radius, areax0, areay0, areax2, areay2;
+    constructor Ghost new(Area A, int xi, int yi, int gspeed){
+        let x = A.getX0() + xi;
+        let y = A.getY0() + yi;
+        let speed = gspeed;
+        let radius = 5;
+        let size = radius *2;
+        let areax0 = A.getX0();
+        let areax2 = A.getX2();
+        let areay0 = A.getY0();
+        let areay2 = A.getY2();
+        do draw();
+        return this;
+    }
+    method boolean overlap(Ghost other){
+        var int h;
+        var int diffx, diffy;
+        let diffx = Math.abs(other.getx()-x);
+        let diffx=diffx*diffx;
+        let diffy = Math.abs(other.gety()-y);
+        let diffy=diffy*diffy;
+        let h = Math.sqrt(diffx+diffy);
+        if (h < (size)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    method int getx(){
+        return x;
+    }
+    method int gety(){
+        return y;
+    }
+    method void die(){
+        do Screen.setColor(false);
+        do Screen.drawCircle(x+radius, y+radius , radius);
+        do Sys.wait(100);
+        do Screen.setColor(true);
+        do Screen.drawCircle(x+radius, y+radius , radius+2);
+        do Sys.wait(100);
+        do Screen.setColor(false);
+        do Screen.drawCircle(x+radius, y+radius , radius+4);
+        do Sys.wait(100);
+        do Screen.setColor(true);
+        do Screen.drawCircle(x+radius, y+radius , radius+6);
+        do Sys.wait(100);
+        do Screen.setColor(false);
+        do Screen.drawCircle(x+radius, y+radius , radius+8);
+        return;
+    }
+    
+    method void ticktowards(int xo, int yo){
+        var int diffx, diffy;
+        let diffx=x-xo;
+        let diffy=y-yo;
+        if ( (diffx*diffx) > (diffy*diffy)){ //ie the diff in x is smaller
+            if (diffx >0){ //xo is to the left => go left
+                do mvleft();
+            }else{
+                do mvright();
+            }
+        }else{ // ie, diff in y is smaller
+            if (diffy >0){ //yo is to the left => go left
+                do mvup();
+            }else{
+                do mvdown();
+            }
+        }
+        return;
+    }
+    method void draw(){
+        do Screen.drawCircle(x+radius, y+radius , radius);
+        return;
+    }
+    method void mvright(){
+        do Screen.setColor(false);
+        do draw();
+        let x=x+speed;
+        if(x>(areax2-size)){
+            let x=x-(areax2 - areax0);
+        }
+        do Screen.setColor(true);
+        do draw();
+        return;
+    }
+    method void mvleft(){
+        do Screen.setColor(false);
+        do draw();
+        let x=x-speed;
+        if(x<areax0){
+            let x=areax2 + (2 * (x - areax0));
+        }
+        do Screen.setColor(true);
+        do draw();
+        return;
+    }
+    method void mvup(){
+        do Screen.setColor(false);
+        do draw();
+        let y=y-speed;
+        if(y<areay0){
+            let y=areay2 + (2 * (y - areay0));
+        }
+        do Screen.setColor(true);
+        do draw();
+        return;
+    }
+    method void mvdown(){
+        do Screen.setColor(false);
+        do draw();
+        let y=y+speed;
+        if(y>(areay2-size)){
+            let y= y - (areay2 -areay0);
+        }
+        do Screen.setColor(true);
+        do draw();
+        return;
+    }
+}

@@ -1,0 +1,72 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/05/Memory.hdl
+
+/**
+ * The complete address space of the computer's memory,
+ * including RAM and memory mapped I/O. 
+ * The chip facilitates read and write operations, as follows:
+ *     Read:  out(t) = Memory[address(t)](t)
+ *     Write: If load(t-1) then Memory[address(t-1)](t) = in(t-1)
+ * In words: the chip always outputs the value stored at the memory 
+ * location specified by address. If load=1, the in value is loaded 
+ * into the memory location specified by address.  This value becomes 
+ * available through the out output starting from the next time step.
+ * Address space rules:
+ * Only the upper 16K+8K+1 words of the Memory chip are used. 
+ * Access to address>0x6000 is invalid. Access to any address in 
+ * the range 0x4000–0x5FFF results in accessing the screen memory 
+ * map. Access to address 0x6000 results in accessing the keyboard 
+ * memory map. The behavior in these addresses is described in the 
+ * Screen and Keyboard chip specifications.
+ */
+
+// RAM16K 
+//      IN  -> in[16], load, address[14]
+//      OUT -> out[16]
+
+//SCREEN
+//      IN  -> in[16], load, address[13]
+//      OUT -> out[16]
+
+//KEYBOARD
+//      IN  ->
+//      OUT -> out[16]
+
+
+
+// RAM16K  0-16383          x000000000000000-x011111111111111
+// SCREEN  16384-24575      x100000000000000-x101111111111111
+// KBOARD  24576            x110000000000000
+
+ 
+// add[15]  add[14]
+//    0
+// +----- RAM
+// |
+// |
+// +         0
+// |     +------- SCREEN
+// |  1  |
+// +-----+
+//       |   1
+//       +------- KEYBOARD
+
+CHIP Memory {
+
+    IN  in[16], load, address[15];
+    OUT out[16];
+
+    PARTS:
+
+    DMux4Way(in=load, sel=address[13..14], a=iram1, b=iram2, c=iscr, d=ikbd);
+    
+    Or(a=iram1, b=iram2, out=iram);
+    RAM16K(in=in, load=iram, address=address[0..13], out=ramout);
+    Screen(in=in, load=iscr, address=address[0..12], out=screenout);
+    Keyboard(out=kbdout);
+    
+    Mux4Way16(a=ramout, b=ramout, c=screenout, d=kbdout, sel=address[13..14], out=out);
+
+}

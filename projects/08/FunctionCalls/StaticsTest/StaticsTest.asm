@@ -1,0 +1,657 @@
+@256
+D=A
+@SP
+M=D
+// DO_CALL: Sys.init
+    @RETFROM_Sys.init1
+    D=A
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @LCL
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @ARG
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THIS
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THAT
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @SP
+    D=M
+    @5
+    D=D-A
+    @ARG
+    M=D
+    @SP
+    D=M
+    @LCL
+    M=D
+    @Sys.init
+    0;JMP
+    (RETFROM_Sys.init1)
+// DO_FUNC
+    (Sys.init)
+@6
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@8
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// DO_CALL: Class1.set
+    @RETFROM_Class1.set2
+    D=A
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @LCL
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @ARG
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THIS
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THAT
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @SP
+    D=M
+    @7
+    D=D-A
+    @ARG
+    M=D
+    @SP
+    D=M
+    @LCL
+    M=D
+    @Class1.set
+    0;JMP
+    (RETFROM_Class1.set2)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+@23
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@15
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// DO_CALL: Class2.set
+    @RETFROM_Class2.set3
+    D=A
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @LCL
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @ARG
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THIS
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THAT
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @SP
+    D=M
+    @7
+    D=D-A
+    @ARG
+    M=D
+    @SP
+    D=M
+    @LCL
+    M=D
+    @Class2.set
+    0;JMP
+    (RETFROM_Class2.set3)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+// DO_CALL: Class1.get
+    @RETFROM_Class1.get4
+    D=A
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @LCL
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @ARG
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THIS
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THAT
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @SP
+    D=M
+    @5
+    D=D-A
+    @ARG
+    M=D
+    @SP
+    D=M
+    @LCL
+    M=D
+    @Class1.get
+    0;JMP
+    (RETFROM_Class1.get4)
+// DO_CALL: Class2.get
+    @RETFROM_Class2.get5
+    D=A
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @LCL
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @ARG
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THIS
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THAT
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @SP
+    D=M
+    @5
+    D=D-A
+    @ARG
+    M=D
+    @SP
+    D=M
+    @LCL
+    M=D
+    @Class2.get
+    0;JMP
+    (RETFROM_Class2.get5)
+(Sys.init$WHILE)
+@Sys.init$WHILE
+0;JMP
+@256
+D=A
+@SP
+M=D
+// DO_CALL: Sys.init
+    @RETFROM_Sys.init6
+    D=A
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @LCL
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @ARG
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THIS
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THAT
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @SP
+    D=M
+    @5
+    D=D-A
+    @ARG
+    M=D
+    @SP
+    D=M
+    @LCL
+    M=D
+    @Sys.init
+    0;JMP
+    (RETFROM_Sys.init6)
+// DO_FUNC
+    (Class2.set)
+@ARG
+D=M
+@0
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@SP
+AM=M-1
+D=M
+@Class2.0
+M=D
+@ARG
+D=M
+@1
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@SP
+AM=M-1
+D=M
+@Class2.1
+M=D
+@0
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// DO_RETURN
+    @LCL
+    D=M
+    @13
+    M=D
+    @5
+    A=D-A
+    D=M
+    @14
+    M=D
+    @SP
+    AM=M-1
+    D=M
+    @ARG
+    A=M
+    M=D
+    @ARG
+    D=M+1
+    @SP
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @THAT
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @THIS
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @ARG
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @LCL
+    M=D
+    @14
+    A=M
+    0;JMP
+// DO_FUNC
+    (Class2.get)
+@Class2.0
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@Class2.1
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@SP
+AM=M-1
+D=M
+@SP
+A=M-1
+M=M-D
+// DO_RETURN
+    @LCL
+    D=M
+    @13
+    M=D
+    @5
+    A=D-A
+    D=M
+    @14
+    M=D
+    @SP
+    AM=M-1
+    D=M
+    @ARG
+    A=M
+    M=D
+    @ARG
+    D=M+1
+    @SP
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @THAT
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @THIS
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @ARG
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @LCL
+    M=D
+    @14
+    A=M
+    0;JMP
+@256
+D=A
+@SP
+M=D
+// DO_CALL: Sys.init
+    @RETFROM_Sys.init7
+    D=A
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @LCL
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @ARG
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THIS
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THAT
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @SP
+    D=M
+    @5
+    D=D-A
+    @ARG
+    M=D
+    @SP
+    D=M
+    @LCL
+    M=D
+    @Sys.init
+    0;JMP
+    (RETFROM_Sys.init7)
+// DO_FUNC
+    (Class1.set)
+@ARG
+D=M
+@0
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@SP
+AM=M-1
+D=M
+@Class1.0
+M=D
+@ARG
+D=M
+@1
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@SP
+AM=M-1
+D=M
+@Class1.1
+M=D
+@0
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// DO_RETURN
+    @LCL
+    D=M
+    @13
+    M=D
+    @5
+    A=D-A
+    D=M
+    @14
+    M=D
+    @SP
+    AM=M-1
+    D=M
+    @ARG
+    A=M
+    M=D
+    @ARG
+    D=M+1
+    @SP
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @THAT
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @THIS
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @ARG
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @LCL
+    M=D
+    @14
+    A=M
+    0;JMP
+// DO_FUNC
+    (Class1.get)
+@Class1.0
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@Class1.1
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@SP
+AM=M-1
+D=M
+@SP
+A=M-1
+M=M-D
+// DO_RETURN
+    @LCL
+    D=M
+    @13
+    M=D
+    @5
+    A=D-A
+    D=M
+    @14
+    M=D
+    @SP
+    AM=M-1
+    D=M
+    @ARG
+    A=M
+    M=D
+    @ARG
+    D=M+1
+    @SP
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @THAT
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @THIS
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @ARG
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @LCL
+    M=D
+    @14
+    A=M
+    0;JMP

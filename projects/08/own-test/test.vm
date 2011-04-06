@@ -1,0 +1,12 @@
+function bob 2
+push constant 3
+push constant 4
+add
+add
+add
+return
+
+push constant 34
+push constant 35
+
+call bob 2

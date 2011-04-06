@@ -1,0 +1,312 @@
+function Pac.new 0
+push constant 8
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+call Area.getX0 1
+push argument 1
+add
+pop this 0
+push argument 0
+call Area.getY0 1
+push argument 2
+add
+pop this 1
+push constant 5
+pop this 2
+push constant 5
+pop this 3
+push argument 0
+call Area.getX0 1
+pop this 4
+push argument 0
+call Area.getX2 1
+pop this 6
+push argument 0
+call Area.getY0 1
+pop this 5
+push argument 0
+call Area.getY2 1
+pop this 7
+push pointer 0
+call Pac.draw 1
+pop temp 0
+push pointer 0
+return
+function Pac.getx 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Pac.gety 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Pac.overlap 3
+push argument 0
+pop pointer 0
+push argument 1
+call Ghost.getx 1
+push this 0
+sub
+call Math.abs 1
+pop local 1
+push argument 1
+call Ghost.gety 1
+push this 1
+sub
+call Math.abs 1
+pop local 2
+push local 1
+push constant 2
+push this 3
+call Math.multiply 2
+lt
+push local 2
+push constant 2
+push this 3
+call Math.multiply 2
+lt
+and
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+return
+goto IF_END0
+label IF_FALSE0
+push constant 0
+return
+label IF_END0
+function Pac.die 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push this 3
+push constant 8
+add
+call Screen.drawCircle 3
+pop temp 0
+push constant 100
+call Sys.wait 1
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push this 3
+push constant 6
+add
+call Screen.drawCircle 3
+pop temp 0
+push constant 100
+call Sys.wait 1
+pop temp 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push this 3
+push constant 4
+add
+call Screen.drawCircle 3
+pop temp 0
+push constant 100
+call Sys.wait 1
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push this 3
+push constant 2
+add
+call Screen.drawCircle 3
+pop temp 0
+push constant 100
+call Sys.wait 1
+pop temp 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push this 3
+call Screen.drawCircle 3
+pop temp 0
+push constant 0
+return
+function Pac.draw 0
+push argument 0
+pop pointer 0
+push this 0
+push this 1
+push this 0
+push constant 3
+add
+push this 1
+push constant 3
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function Pac.mvright 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+call Pac.draw 1
+pop temp 0
+push this 0
+push this 2
+add
+pop this 0
+push this 0
+push this 6
+push this 3
+sub
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+push this 6
+push this 4
+sub
+sub
+pop this 0
+label IF_FALSE0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+call Pac.draw 1
+pop temp 0
+push constant 0
+return
+function Pac.mvleft 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+call Pac.draw 1
+pop temp 0
+push this 0
+push this 2
+sub
+pop this 0
+push this 0
+push this 4
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 6
+push constant 2
+push this 0
+push this 4
+sub
+call Math.multiply 2
+add
+pop this 0
+label IF_FALSE0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+call Pac.draw 1
+pop temp 0
+push constant 0
+return
+function Pac.mvup 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+call Pac.draw 1
+pop temp 0
+push this 1
+push this 2
+sub
+pop this 1
+push this 1
+push this 5
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 7
+push constant 2
+push this 1
+push this 5
+sub
+call Math.multiply 2
+add
+pop this 1
+label IF_FALSE0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+call Pac.draw 1
+pop temp 0
+push constant 0
+return
+function Pac.mvdown 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+call Pac.draw 1
+pop temp 0
+push this 1
+push this 2
+add
+pop this 1
+push this 1
+push this 7
+push this 3
+sub
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 1
+push this 7
+push this 5
+sub
+sub
+pop this 1
+label IF_FALSE0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+call Pac.draw 1
+pop temp 0
+push constant 0
+return

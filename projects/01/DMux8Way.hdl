@@ -1,0 +1,31 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/01/DMux8Way.hdl
+
+/**
+ * 8-way demultiplexor.  The 3-bit sel input selects the output to which 
+ * the in input will be channeled: (000 to a, 001 to b, ..., 111 to h).
+ * The other outputs are set to 0.
+ */
+
+CHIP DMux8Way {
+
+    IN  in, sel[3];
+    OUT a, b, c, d, e, f, g, h;
+
+    PARTS:
+    Not(in=sel[0], out=n0);
+    Not(in=sel[1], out=n1);
+    Not(in=sel[2], out=n2);
+
+    And4Way(a=n2,        b=n1,       c=n0,      d=in, out=a);
+    And4Way(a=n2,        b=n1,       c=sel[0],  d=in, out=b);
+    And4Way(a=n2,        b=sel[1],   c=n0,      d=in, out=c);
+    And4Way(a=n2,        b=sel[1],   c=sel[0],  d=in, out=d);
+    And4Way(a=sel[2],    b=n1,       c=n0,      d=in, out=e);
+    And4Way(a=sel[2],    b=n1,       c=sel[0],  d=in, out=f);
+    And4Way(a=sel[2],    b=sel[1],   c=n0,      d=in, out=g);
+    And4Way(a=sel[2],    b=sel[1],   c=sel[0],  d=in, out=h);
+}
+

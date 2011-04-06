@@ -1,0 +1,25 @@
+
+
+class Area{
+    field int X0, Y0, X2, Y2;
+    constructor Area new(int x0, int y0, int x2, int y2){
+        let X0 = x0;
+        let Y0 = y0;
+        let X2 = x2;
+        let Y2 = y2;
+        do Screen.setColor(true);
+        do Screen.drawRectangle(0,0,511,255);
+        do Screen.setColor(false);
+        do Screen.drawRectangle(X0,Y0,X2,Y2);
+        return this;
+    }
+    method int getX0(){return X0;}
+    method int getY0(){return Y0;}
+    method int getX2(){return X2;}
+    method int getY2(){return Y2;}
+    method void draw(){
+        return;
+    }
+    
+}
+

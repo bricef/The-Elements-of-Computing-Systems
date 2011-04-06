@@ -1,0 +1,92 @@
+/**
+ * The world
+ */
+
+/*
+ * Keycodes
+ * 131 = up
+ * 133 = down
+ * 130 = left
+ * 132 = right
+ */
+
+
+class World {
+    field Paddle paddle;
+    field Ball ball;
+    field int  X0, Y0, X2, Y2, ghostspeed;
+    field Area A;
+    constructor World new(){
+        let ballspeed = 3;
+        let A = Area.new(400, 200, 100);//width, height, depth
+        do A.draw();
+        do ball.draw();
+        do paddle.draw();
+        return this;
+    }
+    method void run(){
+        var int key;
+        var boolean run;
+        let run = true;
+        while (run){
+            while (key = 0) {
+                let key = Keyboard.keyPressed();
+            }
+            if (key = 131 ){do thepac.mvup();}//up
+            if (key = 133 ){do thepac.mvdown();}//down
+            if (key = 130 ){do thepac.mvleft();}//left
+            if (key = 132 ){do thepac.mvright();}//right
+            // waits for the key to be released.
+            while (~(key = 0)) {
+                let key = Keyboard.keyPressed();
+            }
+            do ghosta.ticktowards(thepac.getx(), thepac.gety());
+            do ghostb.ticktowards(thepac.getx(), thepac.gety());
+            
+            if (ghosta.overlap(ghostb)){
+                do ghosta.die();
+                do ghostb.die();
+                //do ghosta.dispose();
+                //do ghostb.dispose();
+                do win();
+            }
+            if (thepac.overlap(ghosta) | thepac.overlap(ghosta)){
+                do thepac.die();
+                do lose();
+            }
+            
+            do A.draw();
+        }
+        return;
+    }
+    method void win(){
+        
+        while (true){
+            do Output.moveCursor(12, 30);
+            do Output.printString("WIN!!");
+            do Sys.wait(300);
+            do Screen.setColor(false);
+            do Screen.drawRectangle(40, 40, 472, 216);
+            do Sys.wait(300);
+            do Screen.setColor(true);
+        }
+        return;
+    }
+    method void lose(){
+        while (true){
+            do Output.moveCursor(12, 30);
+            do Output.printString("Loser");
+            do Sys.wait(300);
+            do Screen.setColor(false);
+            do Screen.drawRectangle(40, 40, 472, 216);
+            do Sys.wait(300);
+            do Screen.setColor(true);
+        }
+        return;
+    }
+    method void dispose(){
+        
+        return;
+    }
+    
+}

@@ -1,0 +1,35 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/02/FullAdder.hdl
+
+/**
+ * Full adder. Computes sum, the least significant bit of 
+ * a + b + c, and carry, the most significant bit of a + b + c.
+ */
+
+CHIP FullAdder {
+
+    IN  a, b, c;
+    OUT sum,     // LSB of a + b + c
+        carry;   // MSB of a + b + c
+
+    PARTS:
+    Xor(a=a, b=b, out=c1);
+    Xor(a=c1, b=c, out=c2);
+
+    And(a=a, b=b, out=b1);
+    And(a=b, b=c, out=b2);
+    And(a=a, b=c, out=b3);
+
+    Or(a=b1, b=b2, out=a1);
+    Or(a=a1, b=b3, out=carry);
+    
+    And(a=b1, b=c, out=allon);
+
+    Or(a=c2, b=allon, out=sum);
+
+
+
+}
+

@@ -1,0 +1,8 @@
+#class files
+*.class
+*.elc
+*.pyc
+*.pdf
+
+misc/*
+tools/*

@@ -1,0 +1,37 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/03/2/RAM4K.hdl
+
+/**
+ * Memory of 4K registers, each 16-bit wide.  
+ * The chip facilitates read and write operations, as follows:
+ *     Read:  out(t) = RAM4K[address(t)](t)
+ *     Write: If load(t-1) then RAM4K[address(t-1)](t) = in(t-1)
+ * In words: the chip always outputs the value stored at the memory 
+ * location specified by address. If load=1, the in value is loaded 
+ * into the memory location specified by address.  This value becomes 
+ * available through the out output starting from the next time step.
+ */
+
+CHIP RAM4K {
+
+    IN  in[16], load, address[12];
+    OUT out[16];
+
+    PARTS:
+
+    DMux8Way(in=load, sel=address[0..2], a=r1i, b=r2i, c=r3i, d=r4i, e=r5i, f=r6i, g=r7i, h=r8i);
+    RAM512(in=in, load=r1i, address=address[3..11], out=r1o);
+    RAM512(in=in, load=r2i, address=address[3..11], out=r2o);
+    RAM512(in=in, load=r3i, address=address[3..11], out=r3o);
+    RAM512(in=in, load=r4i, address=address[3..11], out=r4o);
+    RAM512(in=in, load=r5i, address=address[3..11], out=r5o);
+    RAM512(in=in, load=r6i, address=address[3..11], out=r6o);
+    RAM512(in=in, load=r7i, address=address[3..11], out=r7o);
+    RAM512(in=in, load=r8i, address=address[3..11], out=r8o);
+    Mux8Way16( a=r1o, b=r2o, c=r3o, d=r4o, e=r5o, f=r6o, g=r7o, h=r8o, sel=address[0..2], out=out);
+
+
+}
+

@@ -1,0 +1,24 @@
+/**
+ * 8-way 16 bit demultiplexor. 
+ */
+
+CHIP DMux8Way16 {
+
+    IN  in[16], sel[3];
+    OUT a[16], b[16], c[16], d[16], e[16], f[16], g[16], h[16];
+
+    PARTS:
+    Not(in=sel[0], out=n0);
+    Not(in=sel[1], out=n1);
+    Not(in=sel[2], out=n2);
+
+    And4Way16(a=n2,        b=n1,       c=n0,      d=in, out=a);
+    And4Way16(a=n2,        b=n1,       c=sel[0],  d=in, out=b);
+    And4Way16(a=n2,        b=sel[1],   c=n0,      d=in, out=c);
+    And4Way16(a=n2,        b=sel[1],   c=sel[0],  d=in, out=d);
+    And4Way16(a=sel[2],    b=n1,       c=n0,      d=in, out=e);
+    And4Way16(a=sel[2],    b=n1,       c=sel[0],  d=in, out=f);
+    And4Way16(a=sel[2],    b=sel[1],   c=n0,      d=in, out=g);
+    And4Way16(a=sel[2],    b=sel[1],   c=sel[0],  d=in, out=h);
+}
+

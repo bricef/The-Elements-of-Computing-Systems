@@ -1,0 +1,9 @@
+class Main {
+    function void main(){
+        var World firstworld;
+        let firstworld = World.new();
+        do firstworld.run();
+        do firstworld.dispose();
+        return;
+    }
+}

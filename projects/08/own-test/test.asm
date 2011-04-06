@@ -1,0 +1,197 @@
+@256
+D=A
+@SP
+M=D
+// DO_CALL: Sys.init
+    @RETFROM_Sys.init1
+    D=A
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @LCL
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @ARG
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THIS
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THAT
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @SP
+    D=M
+    @5
+    D=D-A
+    @ARG
+    M=D
+    @SP
+    D=M
+    @LCL
+    M=D
+    @Sys.init
+    0;JMP
+    (RETFROM_Sys.init1)
+// DO_FUNC
+    (bob)
+    @0
+    D=A
+    @SP
+    A=M
+    M=D
+    @SP
+    M=M+1
+    @0
+    D=A
+    @SP
+    A=M
+    M=D
+    @SP
+    M=M+1
+@3
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@4
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@SP
+AM=M-1
+D=M
+@SP
+A=M-1
+M=D+M
+@SP
+AM=M-1
+D=M
+@SP
+A=M-1
+M=D+M
+@SP
+AM=M-1
+D=M
+@SP
+A=M-1
+M=D+M
+// DO_RETURN
+    @LCL
+    D=M
+    @13
+    M=D
+    @5
+    A=D-A
+    D=M
+    @14
+    M=D
+    @SP
+    AM=M-1
+    D=M
+    @ARG
+    A=M
+    M=D
+    @ARG
+    D=M+1
+    @SP
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @THAT
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @THIS
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @ARG
+    M=D
+    @13
+    AM=M-1
+    D=M
+    @LCL
+    M=D
+    @14
+    A=M
+    0;JMP
+@34
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@35
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// DO_CALL: bob
+    @RETFROM_bob2
+    D=A
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @LCL
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @ARG
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THIS
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @THAT
+    D=M
+    @SP
+    AM=M+1
+    A=A-1
+    M=D
+    @SP
+    D=M
+    @7
+    D=D-A
+    @ARG
+    M=D
+    @SP
+    D=M
+    @LCL
+    M=D
+    @bob
+    0;JMP
+    (RETFROM_bob2)
